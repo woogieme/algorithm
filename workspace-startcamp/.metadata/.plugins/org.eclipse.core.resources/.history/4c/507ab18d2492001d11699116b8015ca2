@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CSS 실습</title>
+<style type="text/css">
+	div{
+		background-color: rgba(20,200,10,0.5); 
+	}
+</style>
+</head>
+<body>
+	<div>aaa</div>
+	<div>bbb</div>
+	<div>ccc</div>
+	<div>ddd</div>
+	
+</body>
+</html>

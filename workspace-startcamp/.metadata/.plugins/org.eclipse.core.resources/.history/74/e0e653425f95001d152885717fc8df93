@@ -1,0 +1,36 @@
+package day0116;
+
+public class Test04 {
+	public static void main(String[] args) {
+
+		char[][] grid = {
+				{ '1', '0', '1', '0' },
+				{ '0', 'X', '0', '0' },
+				{ '1', '0', '1', '0' },
+				{ '0', '0', '0', '0' } 
+				};
+
+		int sum = 0;
+        int[] direct = {1,-1};
+        //델타 탐색
+        int[] dx= {-1,1,0,0};
+        int[] dy= {0,0,-1,1};
+        for(int i=0; i<grid.length; i++) {
+        	for(int j=0; j<grid.length; j++) {
+                if (grid[i][j]=='X') {
+                	for(int d=0; d<4; d++) {
+                		int nexti=i+dx[d];
+                		int nextj=i+dx[d];
+                		if (nexti>=0 && nexti<grid.length && nextj>=0 && nextj<grid.length) {
+                			sum+=grid[nexti][nextj]-'0';
+                		}
+                	}
+                }
+            }
+        }
+		// TODO: X로 표시된 항목의 상좌우 숫자의 합을 구하시오.
+		//  단 합을 구할 때 이미 더한 영역은 다시 더하지 않는다.
+		// END:
+		System.out.println(sum);
+	}
+}

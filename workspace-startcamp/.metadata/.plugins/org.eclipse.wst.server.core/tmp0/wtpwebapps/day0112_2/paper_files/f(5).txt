@@ -1,0 +1,1 @@
+_gfp_s_({"_cookies_":[{"_value_":"UID=00000ba033308519:T=1673221944:RT=1673492820:S=ALNI_MZHC6VodBqYZ_8ZW__-ea6UCNiHtQ","_expires_":1706917944,"_path_":"/","_domain_":"acmicpc.net","_version_":2}]});

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	ol li{
+		display: inline;
+	}
+</style>
+</head>
+<body>
+	<div>블록태그</div>
+	<div>옆에 공간이 남아도</div>
+	<h1>양보하지 않지</h1>
+	<h3>필요하면 아래로 가시오</h3>
+	<p>욕심쟁이 들이 block 속성을 가지는 태그들이지</p>
+	<ul>
+		<li>자바</li>
+		<li>알고리즘</li>
+		<li>그만할래</li>		
+	</ul>
+	<ol>
+		<li>배고파</li>
+		<li>살은 언제 빠지는거야</li>
+		<li>계속 찌고있어</li>
+	</ol>
+	<hr>
+	<img src="jin.jpg" width="50px" height="50px">
+</body>
+</html>

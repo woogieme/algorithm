@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<table border="1">
+		<tr>
+			<th>이름</th>
+			<th>나이</th>
+			<th>MBTI</th>
+			<th>거주지</th>
+		</tr>
+		<tr>
+			<td>정재욱</td>
+			<td>27</td>
+			<td>ESTP</td>
+			<td>유성온천역</td>
+		</tr>
+		<tr>
+			<td rowspan ="2">row 행늘림</td>
+			<td colspan ="2">col 행늘림</td>
+		</tr>
+		
+	</table>
+	
+</body>
+</html>

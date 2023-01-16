@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>js test</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style type="text/css">
+	#area{
+		width: 100px;
+		height: 100px;
+		background-color: black;
+	}
+
+</style>
+</head>
+<body>
+	<select id="selectColor">
+		<option value="red">빨강</option>
+		<option value="yellow">노랑</option>
+		<option value="blue">파랑</option>
+	</select>
+	<div id="area"></div>
+	
+	<div>
+	  <canvas id="myChart"></canvas>
+	</div>
+	
+	<script type="text/javascript">
+	//	let selectColor = document.getElementById('selectColor');
+	//	selectColor.onchange = function(){
+	//	document.getElementById('area').style.backgroundColor=selectColor.value;
+	//	}
+	$("#selectColor").on('change',function(){
+		$('#area').css('backgroundColor',$("#selectColor").val()); // = document.getElementById('area').style.backgroundColor=selectColor.value; 
+	}) // = document.getElementById('selectColor');
+	</script>
+<script>
+  const ctx = document.getElementById('myChart');
+
+  let chart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      datasets: [{
+        label: '# of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+  
+</script>
+ 
+</body>
+</html>

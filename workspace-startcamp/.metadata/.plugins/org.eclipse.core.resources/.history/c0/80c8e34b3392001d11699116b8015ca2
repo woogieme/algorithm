@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트 실습</title>
+</head>
+<body>
+	<div>aaa</div>
+	<div class="aa bb">bbb</div>
+	<div class="bb">ccc</div>
+	<div class="aa" id="tttt">ddd</div>
+	
+	<script type= "text/javascript">
+		let colors=["red","orange","yellow","green"];
+		
+		let divs=document.getElementsByTagName('div');
+		
+		for(let i=0; i<divs.length; i++){
+			divs[i].style.backgroundColor = colors[i];
+		}
+		let tttt=document.getElementById('tttt');
+		tttt.onclick=function(){
+			 alert('점심먹어욘');
+		}
+	</script>
+</body>
+</html>

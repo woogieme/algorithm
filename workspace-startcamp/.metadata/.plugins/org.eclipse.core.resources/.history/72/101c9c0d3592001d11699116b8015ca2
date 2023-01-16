@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트 실습</title>
+</head>
+<body>
+	<div>aaa</div>
+	<div class="aa bb">bbb</div>
+	<div class="bb">ccc</div>
+	<div class="aa" id="tttt">ddd</div>
+	
+	<script type= "text/javascript">
+		//var name='yangyu';
+		//자바스크립트 변수는 var와 let이 둘다 가능하지만 되도록 let을 씁시다(이유는 나중에])
+		let name='yangyu';
+		name=100;
+		name=3.14;
+		////////////////////////////////////////////////////
+		//자바 스크립트 배열은 []을 씁니다.
+		let colors=["red","orange","yellow","green"];
+		
+		//div태그가 여러개 있을 수 있으므로 get하면 배열이 얻어집니다.(div가 한개여도 길이1짜리 배열임.)
+		let divs=document.getElementsByTagName('div');
+		for(let i=0; i<divs.length; i++){
+			divs[i+2].style.backgroundColor = colors[i+2];
+		}
+		
+		//id 속성은 태그에 유일하게 부여하는 이름이라 배열이 아니라 해당 태그 하나가 얻어와짐.
+		let tttt=document.getElementById('tttt');
+		tttt.onclick=function(){
+			 alert('점심먹어욘');
+		}
+		////////////////////////////////////////////////////////////////
+		// 여러개의 div에 클릭 이벤트 처리를 다 해주고 싶다.
+		// divs[i].onclick=function(){}; //이렇게 각각 다른 function을 붙여놓을수 있음.
+		// divs[i].onclick=function(){};
+		
+		for(let i=0; i<divs.length; i++){ // function들이 다 비슷하면 반복문 처리도 가능함.
+			divs[i].onclick=function(){
+				let text=divs[i].innerText;
+				console.log('클릭된 놈한텐 이렇게 적혀있음: '+text);
+			}
+		}
+	</script>
+</body>
+</html>

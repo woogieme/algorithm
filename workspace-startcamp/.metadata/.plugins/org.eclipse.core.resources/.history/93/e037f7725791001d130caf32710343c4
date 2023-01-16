@@ -1,0 +1,7 @@
+package day0111;
+
+public class Test01 {
+	public static void main(String[] args) { //Ctrl+Shift+F : 자동정렬 (문법오류나면 정렬안됨)
+			System.out.println("안녕하세요. 9기 대전5반 여러분 반갑습니다!^^"); //sysout (Ctrl+Shift+F)
+	}
+}

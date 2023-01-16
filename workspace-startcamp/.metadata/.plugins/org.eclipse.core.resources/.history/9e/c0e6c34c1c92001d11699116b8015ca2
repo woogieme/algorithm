@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	li{
+		background-color: yellow;
+		margin:30px;
+	}
+</style>
+</head>
+<body>
+.html 확장자를 가지는 파일에는 총 3가지 구성요소가 포함됩니다.
+<ol>
+	<li>HTML 태그(주로 body태그 내부)</li>
+	<li>css스타일(head 태그 내부)</li>
+	<li>javaScript 문장(html문서 내 어디든 상관없음. 위에서부터 순차적으로 실행됨.)</li>
+	
+
+</ol>
+</body>
+</html>

@@ -1,0 +1,9 @@
+package day0111;
+
+public class Solution {
+	public int[] solution(String[] strlist) {
+        int[] answer = new int[strlist.length];
+        
+        return answer;
+    }
+}

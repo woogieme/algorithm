@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>계산하려면?</title>
+</head>
+<body>
+	<div id="buttons"></div>
+	<button class="op">+</button>
+	<button class="op">-</button>
+	<button class="op">*</button>
+	<button class="op">/</button>
+	<button id="calc">=</button>
+	
+	<input type="text" id="formula">
+	
+	<script type="text/javascript">
+		let btns=document.getElementById("buttons");
+		for(let i=0; i<10; i++){
+			btns.innerHTML +='<button class="num">'+i+'</button>';
+		}
+		btns = document.getElementByTagName("button"); //모든 버튼에 대해서
+		for(let i=0; i<btns.length; i++){
+			//버튼을 클릭하면 자기자신의 텍스트를 formula한테 이어붙이기.
+			btns[i].onclick=function(){ 
+				document.getElementById("formula").value+=btns[i].innerText;
+			}
+			
+		}
+		
+		
+	</script>
+</body>
+</html>

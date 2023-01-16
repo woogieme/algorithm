@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CSS 실습</title>
+<style type="text/css">
+	div{
+		background-color: rgba(10,150,10,0.5);
+		width:100px;
+		height:100px; 
+		margin:10px;
+
+	}
+	.aa{
+		text-align:center;
+		background-color: yellow;
+	}
+	
+	#tttt{
+		color:red;
+	}
+</style>
+</head>
+<body>
+	<div>aaa</div>
+	<div class="aa bb">bbb</div>
+	<div class="bb">ccc</div>
+	<div class="aa" id="tttt'>ddd</div>
+	
+</body>
+</html>
