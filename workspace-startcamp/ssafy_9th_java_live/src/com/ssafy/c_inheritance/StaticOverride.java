@@ -8,6 +8,10 @@ class Parent2 {
 
 class Child2 extends Parent2 {
     // TODO: Parent2의 메서드를 재정의 해보자.
+	//static은 overridng이 아닌 hiding이다.
+	static void method() {
+		System.out.println("child method");
+	}
     // END:
 }
 

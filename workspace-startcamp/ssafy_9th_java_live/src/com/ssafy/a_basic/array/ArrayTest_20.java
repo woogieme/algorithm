@@ -11,6 +11,7 @@ public class ArrayTest_20 {
 
 		int sum = 0;
         int[] direct = {1,-1};
+        int[][] redirect= {{-1,0},{1,0},{0,1},{0,-1}};
         for(int i=0; i<grid.length; i++) {
         	for(int j=0; j<grid.length; j++) {
                 if (grid[i][j]=='X') {

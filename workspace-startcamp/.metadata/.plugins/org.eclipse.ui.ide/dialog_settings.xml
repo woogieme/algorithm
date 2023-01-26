@@ -104,8 +104,19 @@
 		<item value="org.springsource.sts.package:3.9.14.202009151235-RELEASE-e415"/>
 		<item value="org.springsource.sts:3.9.14.202009151235-RELEASE"/>
 	</list>
+	<section name="ExternalProjectImportWizard">
+		<item value="true" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
+		<item value="true" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+		<item value="true" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value=""/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value="C:\Users\SSAFY\Downloads\ssafy_java_live.zip"/>
+		</list>
+	</section>
 	<section name="NewWizardAction">
-		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="org.eclipse.jst.servlet.ui.project.facet.WebProjectWizard"/>
+		<item value="org.eclipse.jst.servlet.ui.project.facet.WebProjectWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
 		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
 			<item value="org.eclipse.wst.web.ui"/>
 		</list>

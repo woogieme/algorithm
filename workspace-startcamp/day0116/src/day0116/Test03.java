@@ -8,7 +8,7 @@ public class Test03 {
 		int count=1;
 		for(int i=0; i<arr.length; i++) {
 			for(int j=0; j<i; j++) {
-				System.out.print("  ");
+				System.out.print(" "+" ");
 			}
 			for(int j=arr.length-i; j>0; j--) {
 				System.out.print(count+" ");
