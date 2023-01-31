@@ -2,8 +2,15 @@ package projectSSAFY;
 
 
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class UserManagerImpl implements IUserManager {
 
@@ -14,9 +21,11 @@ public class UserManagerImpl implements IUserManager {
 	private static UserManagerImpl um = new UserManagerImpl();
 
 	private UserManagerImpl() {
+		saveData();
 	};
 
 	public static UserManagerImpl getInstance() {
+		
 		return um;
 	}
 
@@ -99,5 +108,36 @@ public class UserManagerImpl implements IUserManager {
 		return sum / userList.size();
 
 	}
+	public void loadData() {
+		try(ObjectInputStream oin = new ObjectInputStream(new FileInputStream("user.dat"))){
+			Object obj = oin.readObject();
+
+        	if(obj !=null && obj instanceof List<?>) {
+        		List<User> book = (List<User>)obj;
+        		for (int i = 0; i < book.size(); i++) {
+        			if(book.get(i)!=null) {
+					System.out.println(book.get(i));
+        			}
+				}
+        	}
+        	else {
+        		System.out.println("등록된 도서가 1없습니다.");
+        	}
+			
+		}catch(IOException | ClassNotFoundException e ) {
+			System.out.println("등록된 도서가 없습니다.");
+		}
+	}
+		
+	public void saveData() {
+
+			try(ObjectOutputStream arr = new ObjectOutputStream(new FileOutputStream("user.dat"))){
+				arr.writeObject(userList);
+				
+			}catch(IOException e) {
+				e.printStackTrace();
+			}
+		}
+
 
 }

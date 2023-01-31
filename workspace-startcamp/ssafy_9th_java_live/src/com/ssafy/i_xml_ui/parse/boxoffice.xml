@@ -4,8 +4,8 @@
 	<showRange>20210701~20210701</showRange>
 	<dailyBoxOfficeList>
 		<dailyBoxOffice>
-			<rnum>1</rnum>
-			<rank>1</rank>
+			<rnum>1</rnum> <!-- Map의 구조이지만 직접 타이핑하면 문제가 생기니까 Class를 사용 -->
+			<rank>1</rank> <!-- 데이터를 주고받는역할은 DTO  -->
 			<rankInten>0</rankInten>
 			<rankOldAndNew>OLD</rankOldAndNew>
 			<movieCd>20192696</movieCd>

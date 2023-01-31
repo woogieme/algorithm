@@ -35,6 +35,9 @@ public class UserTest {
 		System.out.println(um.getAgeAvg());
 
 		System.out.println(um.equals(um2));
+		
+	
+		um.loadData();
 
 	}
 

@@ -10,6 +10,7 @@ public class SaxParserTest {
         BoxOfficeSaxParser handler = new BoxOfficeSaxParser();
 
         List<BoxOffice> list = handler.getBoxOffice();
+        
         for (BoxOffice boxOffice : list) {
             System.out.println(boxOffice);
         }

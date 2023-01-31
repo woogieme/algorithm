@@ -1,6 +1,13 @@
 package project9;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Arrays;
+
 
 public class BookManagerImpl implements IBookManager{
 	private final int MAX_SIZE=100;
@@ -148,6 +155,41 @@ public class BookManagerImpl implements IBookManager{
 		}
 		else {
 			throw new ISBNNotFoundException(isbn);
+		}
+	}
+	
+	public void loadData() {
+		File f = new File("book.dat");
+		if(f.exists()) {
+			try (ObjectOutputStream arr = new ObjectOutputStream(new FileOutputStream(f)) ){
+				arr.writeObject(books);
+			}catch(IOException e) {
+				e.printStackTrace();
+			}
+		}
+		else {
+			books =new Book[MAX_SIZE];
+		}
+	}
+	
+	public void saveData() {
+		try(ObjectInputStream oin = new ObjectInputStream(new FileInputStream("book.dat"))){
+			Object obj = oin.readObject();
+
+        	if(obj !=null && obj instanceof Book[]) {
+        		Book[] book = (Book[])obj;
+        		for (int i = 0; i < book.length; i++) {
+        			if(book[i]!=null) {
+					System.out.println(book[i]);
+        			}
+				}
+        	}
+        	else {
+        		System.out.println("등록된 도서가 없습니다.");
+        	}
+			
+		}catch(IOException | ClassNotFoundException e ) {
+			System.out.println("등록된 도서가 없습니다.");
 		}
 	}
 	

@@ -2,7 +2,11 @@
 <!DOCTYPE ssafy SYSTEM "./student.dtd">
 <ssafy>
 	<student no="12345">
-		<name>홍길동</name>
+		<name>
+			<![CDATA[age <10]]>  <!-- cdata: character data-->
+			 <!-- XML 파서가 파싱하지않음 -->
+			 <!-- DTD와 Schema의 역할 -->  
+		</name>
 		<loc>광주</loc>
 		<phone>010-222-3333</phone>
 	</student>

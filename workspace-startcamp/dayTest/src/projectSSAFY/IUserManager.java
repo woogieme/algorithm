@@ -4,17 +4,20 @@ package projectSSAFY;
 
 public interface IUserManager {
 	
-	void add(User user);
+	public void add(User user);
 	
-	User[] getList();
+	public User[] getList();
 	
-	User[] getUsers();
+	public User[] getUsers();
 	
-	VipUser[] getVipUsers();
+	public VipUser[] getVipUsers();
 	
 	// 예외를 던진다고 선언
-	User[] searchByName(String name) throws NameNotFoundException;
+	public User[] searchByName(String name) throws NameNotFoundException;
 	
-	double getAgeAvg();
+	public double getAgeAvg();
+	
+	public void saveData();
+	public void loadData();
 	
 }

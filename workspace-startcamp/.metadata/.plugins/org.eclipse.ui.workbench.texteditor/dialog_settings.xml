@@ -2,27 +2,27 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="size" key="selection"/>
+		<item value="search" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="size"/>
-			<item value="indexOf"/>
-			<item value="elements"/>
-			<item value="elemetns"/>
-			<item value="updateCount"/>
-			<item value="concernDiv"/>
-			<item value="form-group mt-2 text-right"/>
-			<item value="btn btn-primary"/>
-			<item value="javascript:sendConcern"/>
-			<item value="concernModal"/>
-			<item value="modal-content"/>
-			<item value="concernDiv&apos;"/>
-			<item value="concern"/>
-			<item value="&amp;times"/>
-			<item value="changeChart"/>
+			<item value="search"/>
+			<item value="Info"/>
+			<item value="getHomeInfo"/>
+			<item value="getHomeInfop"/>
+			<item value="aptInfoFilePath"/>
+			<item value="Apt"/>
+			<item value="showHomes"/>
+			<item value="searchAll"/>
+			<item value="imgL"/>
+			<item value="imgL:"/>
+			<item value="img"/>
+			<item value="code"/>
+			<item value="showHomeInfo"/>
+			<item value="seach"/>
+			<item value="name"/>
 		</list>
 		<list key="replacehistory">
 		</list>
@@ -32,6 +32,6 @@
 		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
 		<item value="391" key="DIALOG_HEIGHT"/>
 		<item value="679" key="DIALOG_X_ORIGIN"/>
-		<item value="309" key="DIALOG_Y_ORIGIN"/>
+		<item value="266" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

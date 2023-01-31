@@ -6,3 +6,4 @@ org.eclipse.jdt.core.compiler.compliance=1.8
 org.eclipse.jdt.core.compiler.problem.assertIdentifier=error
 org.eclipse.jdt.core.compiler.problem.enumIdentifier=error
 org.eclipse.jdt.core.compiler.source=1.8
+org.eclipse.jdt.core.userLibrary.jackson=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<userlibrary systemlibrary\="false" version\="2">\r\n\t<archive path\="C\:/SSAFY/workspace/9th_test/workspace-startcamp/jackson/jackson-annotations-2.12.4.jar"/>\r\n\t<archive path\="C\:/SSAFY/workspace/9th_test/workspace-startcamp/jackson/jackson-core-2.12.4.jar"/>\r\n\t<archive path\="C\:/SSAFY/workspace/9th_test/workspace-startcamp/jackson/jackson-databind-2.12.4.jar"/>\r\n</userlibrary>\r\n

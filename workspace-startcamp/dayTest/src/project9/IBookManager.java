@@ -10,4 +10,6 @@ public interface IBookManager {
 	public double getPriceAvg();
 	public void sell (String isbn, int quantity) throws QuantityException, ISBNNotFoundException;
 	public void buy (String isbn, int quantity) throws ISBNNotFoundException;
+	public void loadData();
+	public void saveData();
 }

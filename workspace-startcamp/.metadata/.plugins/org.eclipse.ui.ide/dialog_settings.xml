@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="C:\SSAFY\workspace\9th_test\workspace-startcamp"/>
+	</list>
 	<list key="installedFeatures">
 		<item value="com.ianbrandt.tools.m2e.mdp.feature:0.0.4.201409291703"/>
 		<item value="org.aspectj:1.9.6.202007241909"/>
@@ -110,8 +113,12 @@
 		<item value="true" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
 			<item value=""/>
+			<item value="C:\SSAFY\workspace\9th_test"/>
+			<item value="C:\SSAFY\workspace\9th_test\workspace-startcamp"/>
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value="C:\Users\SSAFY\Downloads\WhereIsMyHome_Java_지역_반_이름1_이름2.zip"/>
+			<item value=""/>
 			<item value="C:\Users\SSAFY\Downloads\ssafy_java_live.zip"/>
 		</list>
 	</section>

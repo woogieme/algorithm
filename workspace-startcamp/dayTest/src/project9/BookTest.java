@@ -79,5 +79,10 @@ public class BookTest {
 		}catch(ISBNNotFoundException e){
 			System.out.println(e.getMessage());
 		}
+		System.out.println("*********불러온 도서 전체 목록*************");
+		bm1.saveData();
+		bm1.loadData();
+		System.out.println("*********불러온 도서 전체 목록*************");
+		bm1.saveData();
 	}
 }
