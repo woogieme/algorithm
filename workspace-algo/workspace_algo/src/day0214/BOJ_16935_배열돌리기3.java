@@ -28,26 +28,27 @@ public class BOJ_16935_배열돌리기3 {
 		}
 		st = new StringTokenizer(br.readLine());
 		T= Integer.parseInt(st.nextToken());
-		
-		switch(T) {
-		case 1:
-			horizonSwap();
-			break;
-		case 2:
-			perpenSwap();
-			break;
-		case 3:
-			rightRotate();
-			break;
-		case 4:
-			leftRotate();
-			break;
-		case 5:
-			counterClock();
-			break;
-		case 6:
-			clock();
-			break;
+		for (int i = 0; i <R; i++) {
+			switch(T) {
+			case 1:
+				horizonSwap();
+				break;
+			case 2:
+				perpenSwap();
+				break;
+			case 3:
+				rightRotate();
+				break;
+			case 4:
+				leftRotate();
+				break;
+			case 5:
+				counterClock();
+				break;
+			case 6:
+				clock();
+				break;
+			}
 		}
 		
 	}

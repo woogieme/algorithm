@@ -1,12 +1,15 @@
-package day0214;
+package day0216;
 
 import java.util.Arrays;
 
-public class Test_수열 {
-	static int[] num= {1,1,1,1 };
-	static int[] arr = {0,0,0,0,0};
+public class Test_수열2 {
+	static int[] num= {1,2,3,4 ,5,6,7,8,9,10,11};
+	static int[] arr = {0,0,0};
+	static int N=num.length;
+	static int R=arr.length;
+	
 	public static void main(String[] args) {
-		perm(0);
+		//perm(0);
 		comb(0,0);
 	}
 	private static void perm(int idx) {
@@ -24,17 +27,16 @@ public class Test_수열 {
 		}
 	}
 	private static void comb(int idx, int cnt) {
-		// TODO Auto-generated method stub
-		if(idx==arr.length) {
+		if(idx==N) {
+			return;
+		}
+		if(cnt==R) {
 			System.out.println(Arrays.toString(arr));
 			return;
 		}
-		if(cnt==num.length) {
-			return;
-		}
 		
-		num[idx]-=0;
-		
-		
+		arr[idx]=num[cnt];
+		comb(idx+1,cnt+1);
+		comb(idx+1,cnt);
 	}
 }
