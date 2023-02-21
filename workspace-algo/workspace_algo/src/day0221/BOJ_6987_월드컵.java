@@ -13,6 +13,7 @@ public class BOJ_6987_월드컵 {
 	static boolean[] selected;
 	static int[] permArr = {1,2,3,4,5,6};
 	static int[] permBrr;
+	static boolean isFlag;
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
@@ -24,18 +25,27 @@ public class BOJ_6987_월드컵 {
 			int c =Integer.parseInt(st.nextToken());
 			arr.add(new Point(a,b,c));
 		}
+		isFlag=false;
 		for (int i = 0; i < permArr.length; i++) {
+			
 			permBrr= new int[] {0,0,0};
-			checkperm(i,i);
+			checkperm(0,i);
+			if(!isFlag) {
+				System.out.print(0+" ");
+			}
+			else {
+				System.out.println(1+" ");
+			}
+			isFlag=false;
 		}
 	}
 	private static void checkperm(int idx,int N) {
 		if(idx==permBrr.length) {
-			System.out.println(Arrays.toString(permBrr));
+
 			if(permBrr[0]==arr.get(N).x) {
 				if((permBrr[1]==arr.get(N).y)&& permBrr[2]==arr.get(N).z) {
-					System.out.println("유레카!!");
-					System.out.println(Arrays.toString(permBrr));
+					System.out.println("유레카");
+					isFlag=true;
 				}
 			}
 			return;
