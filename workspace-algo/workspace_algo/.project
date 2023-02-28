@@ -16,6 +16,16 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>src/dijkstra_input.txt</name>
+			<type>1</type>
+			<locationURI>PARENT-4-PROJECT_LOC/Users/SSAFY/Downloads/live16_19_dist/dijkstra_input.txt</locationURI>
+		</link>
+		<link>
+			<name>src/prim_input.txt</name>
+			<type>1</type>
+			<locationURI>PARENT-4-PROJECT_LOC/Users/SSAFY/Downloads/live16_19_dist/prim_input.txt</locationURI>
+		</link>
+		<link>
 			<name>src/day0220/EX_공간만들기.java</name>
 			<type>1</type>
 			<locationURI>PARENT-4-PROJECT_LOC/Users/SSAFY/Downloads/live11_15_dist/EX_%EA%B3%B5%EA%B0%84%EB%A7%8C%EB%93%A4%EA%B8%B0.java</locationURI>
