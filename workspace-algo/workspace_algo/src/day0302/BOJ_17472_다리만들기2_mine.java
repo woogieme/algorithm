@@ -116,21 +116,6 @@ public class BOJ_17472_다리만들기2_mine {
 		//크루스칼을 하기위해서 가중치 정렬 
 		Collections.sort(mt_Info);
 		
-		//노드의 갯수를 알기위해서 저장해놓은 섬들중에 최고높은 섬이 노드가 될거이기때문에 반복문을 통해서 
-		//최고 높은 섬을 노드의 갯수로 저장
-//		for (int i = 0; i < mt_Info.size(); i++) {
-//			if(mt_Info.get(i).x<=mt_Info.get(i).y) {
-//				if(V<=mt_Info.get(i).y) {
-//					V=mt_Info.get(i).y;
-//				}
-//			}
-//			else {
-//				if(V<=mt_Info.get(i).x) {
-//					V=mt_Info.get(i).x;
-//				}
-//			}
-//		}
-		
 		//크루스칼 시작 
 		makeSet();
 		int result=0,  icount=0;
@@ -264,10 +249,3 @@ public class BOJ_17472_다리만들기2_mine {
 		
 	}
 }
-
-
-//
-//		for (int i = 0; i < ansComb1.size(); i++) {
-//			System.out.println(ansComb1.get(i).x+" : "+ansComb1.get(i).y+" : " +ansComb1.get(i).weight);
-//			
-//		}

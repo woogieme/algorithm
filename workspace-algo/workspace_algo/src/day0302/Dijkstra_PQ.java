@@ -40,7 +40,7 @@ public class Dijkstra_PQ {
 		@Override
 		public int compareTo(Edge o) {
 			// TODO Auto-generated method stub
-			return 0;
+			return this.weight - o.weight;
 		}
 		
 	}
