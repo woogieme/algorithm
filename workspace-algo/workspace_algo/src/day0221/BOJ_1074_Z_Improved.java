@@ -15,7 +15,7 @@ public class BOJ_1074_Z_Improved {
 		System.out.println(ans);
 		
 	}
-	static void func(int si, int sj, int ei, int ej) {
+	static void func(int si, int sj, int ei, 	int ej) {
 		if(r<si || r>=ei || c<sj || c>=ej) {
 			cnt+=(ei-si) * (ej - sj); 
 			return;

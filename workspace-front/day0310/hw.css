@@ -1,0 +1,257 @@
+/* header, div, nav 는 박스 */
+* {
+    /* 리스트 스타일이 안이쁘니까 지우기 */
+    list-style: none; 
+    /* 모든애들이 패딩 마진이없애기 -> 지금은 바디가 헤더에 찰싹붙는것 */
+    /* default는 태그들은 패딩과 마진이있으니 먼저 없애보도록하자 */
+    padding: 0px;
+    margin: 0px;
+}
+a{
+    /* 안이쁜거[a 태그의 푸르딩딩한거 없애는것] 지워버리기 */
+    text-decoration: none;
+    color:grey;
+}
+
+header{
+    height: 150px;
+    /*  */
+    box-shadow: 0px 1px 10px grey;
+}
+
+/* header안에있는 nav를 일컫는말이다. */
+header>nav{
+    /* 박스는 align center 안먹히니까 좌우로장풍을 쏴야함 */
+    margin-left: auto;
+    margin-right: auto;
+    /* ---------------- */
+    max-width: 80%;
+    width: 80%;
+    height: 70px;
+}
+nav>a{
+    /* nav의 a태그들은 위로 밀어준다 */
+    float: left;
+    /* 공지사항부분이 똑같이 위로 가있어서 menuitem처럼 만들어준다 */
+    margin: auto;
+    line-height: 70px;
+    height: 70px;
+}
+
+.header_nav_home{
+    /* 폰트사이즈 크게만들기 */
+    font-size: 40px;
+    /* 공지사항과 싸피 북카페를 서로 공간 만들기 */
+    margin-right: 20px;
+    /* 굵게 만들기 */
+    font-weight: bold;
+}
+
+.header_nav_menu{
+    /*header_nav_men 태그들은 오른쪽으로 밀어준다. */
+    float: right;
+    
+}
+.header_nav_menuitem{
+    /* 두개를 사용할수있다 [float, display] 하지만 좌라라락~ 가로로 정렬하고싶으면 div가 박스이기때문에 */
+    /* inline-block를 선언하여 서로 옆으로 붙을수있게 만들어준다 */
+    /* float:right; */
+    /* 하지만 float는 inline이기때문에 나중에 block으로 width, height를 해주고싶어도 못한다  */
+    /* 그래서 inline-block 선언 */
+    display: inline-block;
+    /* 밑으로 내려주기위해서 다른블럭이랑 높이를 같이 만들어준다. */
+    /* 그래도 밑으로 내려준다 그 이유는 컨텐츠의 크기[a]가 작기때문에 그렇다 */
+    /* a는 inline이라서 자신의 컨텐츠 영역만을 사용하기때문에 그런것임 */
+    /* 그렇기때문에 line-height를 사용해서 변경해준다 */
+    line-height: 70px;
+    height: 70px;
+    /* menuitem들끼리 붙어잇는다는게 싫다면 margin을통해서 공간을 넓혀준다 */
+    margin-right: 10px;
+}
+
+.content{
+    /*  */
+    background-color: yellow;
+    width: 80%;
+    max-width: 80%;
+    /* 장풍쏴서 밀어버리기 */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@중앙 왼쪽 컨텐츠 시작 @@@@@@@@@@@@@@@@@@@*/
+.content_left{
+    /* 내 부모[부모는 content]기준으로  width 25%를 쓰는거다*/
+    width: 25%;
+    /* background-color: pink; */
+    /* 왼쪽으로 밀어 그리고 같이써 */
+    float:left;
+    
+
+}
+.profile{
+    /* profile div는 content_left의 70프로만 사용함 [profile의 부모라서] */
+    /* 프로파일로 양옆장풍쏘기 */
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    /* 안에있는 박스들을 가운데로 배치하고싶으면  그 안에있는 박스가 스스로 장풍을쏴야함*/
+    /* 안에잇는 인라인들을 가운데로 배치하고싶으면 인라인을 감싸고있는 부모 박스들이 정렬해줘야함 */
+    text-align: center;
+}
+
+.profile_img{
+    /* 프로필 사진 div*/
+    /* width 줄이고 10px로 만들어서 둥글게 만들기 */
+    /* 이미지는 inline임 */
+    /* 부모가 70%을 사용하고잇다면 자식은 당연히 부모가 가진것에대한 모든 부분중 70%를 사용하는것임 */
+    width: 80%;
+    border-radius: 10px;
+
+
+}
+.store_display{
+    /* 색깔과 폰트사이즈 */
+    background-color: grey;
+    font-size: 20px;
+
+    /* 높이 30px */
+    height: 30px;
+    /* 패딩을통해서 div안에서 공간두기 */
+    padding: 10px;
+    /* 굴리기 */
+    border-radius: 10px;
+    /* 텍스트 정렬해버리기 */
+    text-align: center;
+}
+
+
+.store_item li {
+    /* store_item들의 직계자식 li들 모두 모여~!~~ */
+    font-size: 20px;
+    background-color: lightgrey;
+    /* 서로 자식들끼리 떨어져야할필요성이있다 */
+    margin-top: 5px;
+    border-radius: 10px;
+    padding: 10px;
+}
+.store_item > li > a{
+    font-weight: bold;
+    color:black;
+    font-size: 20px;
+}
+
+.vote{
+    /* 경계선 */
+    border: 2px solid black;
+    margin-top: 20px;
+    border-radius: 20px;
+    padding: 20px;
+
+}
+.vote_title{
+    text-align: center;
+    font-weight: bold;
+    color: grey;
+    font-size: 20px;
+}
+.vote_question{
+    font-size: 20px;
+    font-weight: bold;
+}
+.vote_button{
+    /* A 블럭태그안에 B블럭이잇다면 B블럭을 다시 배치하는건 A블럭이 어떻게 하질 못함 */
+    /* 그래서 B블럭이 혼자서 장풍쏘고 그래야함 */
+    /* 내가 지금 갖고잇는애들이 인라인이라면 텍스트 얼라인을 해줄수있음 */
+    text-align: right;
+}
+.vote_button button{
+    background-color: white;
+    color:black;
+    border: 1px solid grey;
+    padding:5px;
+}
+.vote_button .active{
+    background-color: blueviolet;
+    color: white;
+}
+.vote_date{
+    font-weight: bold;
+    text-align: center;
+    font-size: 17px;
+    margin-top:17px;
+}
+/* @@@@@@@@@@@@@@@@@@중앙 왼쪽 컨텐츠 끝 @@@@@@@@@@@@@@@@@@@*/
+
+
+/*@@@@@@@@@@@@@@@@@@@@@@@ 중앙 가운데 컨텐츠 시작 @@@@@@@@@@@@@@@@@@@@@@*/
+.content_body{
+    /* 내 부모[부모는 content]기준으로  width 25%를 쓰는거다*/
+    width: 75%;
+    /* background-color: aquamarine; */
+    /* 오른쪽으로 밀어 그리고 같이써*/
+    float: right;    
+}
+.content_body_menu{
+    /* 야 body안에잇는놈들 좀 떨어져! */
+    padding: 20px;
+    
+}
+
+.content_body_menu li{
+    display: inline-block;
+    width:20%;
+}
+
+.content_body_menu .item{
+    width: 100%;
+    border: 1px solid grey;
+    height: 300px;
+}
+
+.board article{
+    float: left;
+    width:45%;
+}
+.board article table{
+    width:100%;
+    padding: 10px;
+    border-top: 1px solid black;
+}
+.board article table td{
+    /* color:red; */
+    font-size: 18px;
+    
+}
+.board .board_popular tbody tr:nth-of-type(odd){
+    background-color: lightgray;
+}
+.board .board_popular tbody tr:nth-of-type(even){
+    background-color: lightblue;
+    ;
+}
+.board .board_new tbody tr:nth-of-type(even){
+    background-color: lightgray;
+}
+.board .board_new tbody tr:nth-of-type(odd){
+    background-color: lightblue;
+}
+.board .board_new tbody th,td{
+    border: 1px solid grey;
+}
+/* @@@@@@@@@@@@@@@@@@@@중앙 가운데 컨텐츠 끝 @@@@@@@@@@@@@@@@@@@@*/
+
+/* 하단 footer 시작 */
+footer{
+    clear: both;
+    width:80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+footer li{
+    font-size: 18px;
+    color:grey;
+    display: inline-block;
+    margin-left: 20px;
+}
+/* @@@@@@@@@@@@@@@@@@@@@하단 footer 끝@@@@@@@@@@@@@@@ */

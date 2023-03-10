@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- <script>
+        //body 태그 내부 총괄하는 객체 document한테 부탁하자
+        var text = document.getElementById("target").innerText;
+        //여기는 body가 생성되기 이전타이밍인데?? target이라는 놈은 아직 생성되지 않앗어
+        alert(text);
+    </script> -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="target">
+        안녕하세요 ㅋㅋㅋㅋ하이루 ㅋㅋ
+    </div>
+    <script>
+        //html 태그 밑에서 script를 넣으면 제대로 동작하는걸 볼수있음
+        //이 위에서 target div가 생성됐음 실행가능!!!
+        var text = document.getElementById("target").innerText;  
+        alert(text);
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .a{
+            position: relative;  /*static이엇을때의 위치를 기준으로 이동 */
+            left: 30px;
+            top: 30px;
+            width: 300px;
+            height: 500px;
+            background-color: red;
+        }
+        .b{
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+        .c{
+            /* position: relative;
+            right:40px;
+            bottom: 40px; */
+            position:absolute;
+            top:0px;
+            left:0px;
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent1">
+        <div class="a">
+            <div class="b">
+                <div class="c"></div>
+            </div>
+        </div>
+        
+        
+    </div>
+    
+</body>
+</html>

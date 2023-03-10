@@ -1,0 +1,60 @@
+
+nav{
+    display: flex;
+    justify-content: space-around;
+    margin-right: 100px;
+    align-content: center;
+    border-bottom: solid 5px;
+}
+a{
+    justify-content: space-around;
+}
+#profile_img{
+    display: block;
+}
+#top_page{
+    display: inline-block;
+}
+.not{
+    display: block;
+}
+.store{
+    display:block;
+}
+ul{
+    display: block;
+}
+.choice{
+    display: block;
+}
+.center{
+    display:inline-block;
+}
+.left{
+    display: inline-block;
+}
+.main{
+    display: flex;
+}
+.selects{
+    display: inline-block;
+}
+.programming{
+    display: inline-block;
+}
+.top_unit{
+    display: inline-block;
+}
+.write{
+    display: inline-block;
+}
+.essay{
+    text-align: center;
+    width: 150px;
+}
+.font{
+    text-align: center;
+}
+.book{
+    text-align: center;
+}
