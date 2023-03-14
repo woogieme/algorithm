@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="load">
+        여기에 storage 내용을 꺼내서 출력합니다.<br>
+        <script>
+            var result = localStorage.getItem("info");
+            document.getElementById("load").innerHTML+=localStorage.getItem('info');
+            console.log(result);
+            var obj = JSON.parse(result);
+            console.log(obj);
+        </script>
+    </div>
+</body>
+</html>
