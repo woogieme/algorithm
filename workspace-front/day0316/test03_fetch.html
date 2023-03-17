@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="keyword" placeholder="검색어를 입력하세요.">
+    <button id="search">검색</button>
+    <div id="result">검색 결과 영역</div>
+    <script>
+        document.getElementById("search").onclick = function(){
+            var keyword = document.getElementById("keyword").value;
+            var resp = fetch("http://192.168.214.40:7777/rest/naver/shop?keyword="+keyword)
+            fetch("wook.xml")
+            .then(function(resp){
+                return resp.text();
+            })
+            .then(function(data){
+                makeList(data);
+            });
+
+        }
+        function makeList(data){
+            let parser = new DOMParser();
+            const xml = parser.parseFromString(data,"application/xml");
+            var el=`
+            <table border="1">
+            <tr>
+                <th>상품명</th>
+                <th>최저가</th>
+                <th>이미지</th>
+                <th>바로가기</th>
+            </tr>
+            `;
+            let items = xml.querySelectorAll("item");
+            items.forEach((item)=> {
+                el+= `<tr>
+                    <td>${item.querySelector("title").textContent}</td>
+                    <td>${item.querySelector("lprice").textContent}</td>
+                    <td><img src=${item.querySelector("image").textContent} width=50px; height=50px;></td>
+                    <td><a href=${item.querySelector("link").textContent}>바로가기</td>
+                    </tr>
+                `
+
+            })
+            el+=`</table>`;
+            document.getElementById("result").innerHTML=el;
+        }
+
+    </script>
+    
+    
+</body>
+
+</html>

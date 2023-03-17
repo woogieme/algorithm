@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="keyword" placeholder="검색어를 입력하세요.">
+    <button id="search">검색</button>
+    <div id="result">검색 결과 영역</div>
+    <script>
+        var btn = document.getElementById("search");
+        btn.onclick = async function(){
+            var keyword = document.getElementById("keyword")ㅋ
+            var resp = await fetch("http://192.168.214.40:7777/rest/naver/shop?keyword="+keyword);
+            //fetch는 값을 줘 ! 라는건데 비동기방식이라 밑에있는줄이 실행된다
+            //그래서 fetch로 요청을 줬는데 상대방측에서 값을 주는것을 기다리는함수가있다면 
+            //제대로 값이 읽어지지않는다
+            //그러므로 방법이있다.
+            //fetch가 완료될때까지 기다려야한다 = >await
+            
+            //응답 헤더나 그밖에 정보들 걷어내고 응답 json 객체만 뽑아 줘!
+            //그치만 json도 기다려야하는게 맞으니 기달려줘야한다
+            var respJson  = await resp.json();
+            //console.log("응답데이터",resp);
+            console.log("응답데이터",respJson);
+            //document.getElementById("result").innerText=resp;
+            document.getElementById("result").innerText=respJson;
+            var items = respJson.items;
+            //console.log('상품 10개 배열', items);
+
+            // var table = document.createElement("table");
+            // var tr = document.createElement("tr");
+            // var td = document.createElement("td");
+            // var th = document.createElement("th");
+            // th.append(document.createTextNode("상품명"));
+            var el=`
+            <table border="1">
+            <tr>
+                <th>상품명</th>
+                <th>최저가</th>
+                <th>이미지</th>
+                <th>바로가기</th>
+            </tr>
+            `;
+            items.forEach(function(item){
+                el += `<tr>
+                    
+                    <td>${item.title}</td>
+                    <td>${item.lprice}</td>
+                    <td> <img src=${item.image} width=50px; height=50px></td>
+                    <td><a href=${item.link}>바로가기</td>
+                    
+                    </tr>`
+            });
+            el +=`</table>`;
+            document.getElementById("result").innerHTML=el;
+        };
+    </script>
+    
+    
+</body>
+
+</html>
