@@ -1,65 +1,47 @@
-
-
 package model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DBUtil {
+	private static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
+	private static final String DB_URL="jdbc:mysql://localhost:3306/ssafy_yangyu?characterEncoding=UTF-8&serverTimezone=UTC";
+	private static final String DB_USER="ssafy";
+	private static final String DB_PW="ssafy";
 	
-	private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
-	private static final String DB_URL="jdbc:mysql://localhost:3306/ssafy_yangyu?characterEncoding=UTF-8&&serverTimezone=UTC";
-	private static final String DB_ID = "ssafy";
-	private static final String DB_PWD = "ssafy";
-	
-	static {
+	public DBUtil() {
 		try {
-			Class.forName(DRIVER);
+			Class.forName(DB_DRIVER);
 		} catch (ClassNotFoundException e) {
+			System.out.println("드라이버 로딩 오류");
 			e.printStackTrace();
 		}
 	}
-
-	public static Connection getConnection() throws SQLException {
-		return DriverManager.getConnection(DB_URL, DB_ID, DB_PWD);
+	
+	public Connection getConnection() {
+		Connection conn = null;
+		
+		try {
+			conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PW);
+		} catch (SQLException e) {
+			System.out.println("커넥션 생성 오류");
+			e.printStackTrace();
+		}
+		return conn;
 	}
 	
-//	public static void close(PreparedStatement pstmt, Connection conn) {
-//		try {
-//			if(pstmt != null)
-//				pstmt.close();
-//			if(conn != null)
-//				conn.close();
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//	}
-//	
-//	public static void close(ResultSet rs, PreparedStatement pstmt, Connection conn) {
-//		try {
-//			if(rs != null)
-//				rs.close();
-//			if(pstmt != null)
-//				pstmt.close();
-//			if(conn != null)
-//				conn.close();
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//	}
-	
-	public static void close(AutoCloseable... autoCloseables) {
-		for(AutoCloseable ac : autoCloseables) {
-			if(ac != null) {
+	public void close(AutoCloseable... closeables) {
+		for(AutoCloseable c: closeables) {
+			if(c!=null) {
 				try {
-					ac.close();
+					c.close();
 				} catch (Exception e) {
+					System.out.println("close 에러");
 					e.printStackTrace();
 				}
 			}
 		}
+		
 	}
 }

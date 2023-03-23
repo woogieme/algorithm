@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-글쓰기 에러났댄다 근데 이 페이지가 볼일이 있을까 없을거 같은데 왜만들지 그래도 그냥 따라하는거지 뭐<br>
-<a href = "<%=request.getContextPath() %>/board">목록완료</a>
+글쓰기 에러났댄다 근데 이 페이지가 뜰일이 있을까 없을거 같은데 왜만들지 그래도 그냥 따라하는거지 뭐<br>
+<a href="<%=request.getContextPath()%>/board">[목록으로]</a>
 </body>
 </html>
