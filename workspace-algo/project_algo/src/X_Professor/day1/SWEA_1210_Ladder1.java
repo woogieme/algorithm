@@ -44,39 +44,23 @@ public class SWEA_1210_Ladder1 {
 		
 		
 	}
-//	
-//	private static void showmap(int[][] tmp) {
-//		
-//		for (int i = 0; i < 100; i++) {
-//			for (int j = 0; j < 100; j++) {
-//				System.out.print(tmp[i][j]+" ");
-//			}
-//			System.out.println();
-//		}
-//		
-//		
-//	}
-//	
-//	
-//	private static int[][] ArrayCopy(int[][] map) {
-//		int[][] tmp = new int[100][100];
-//		for (int i = 0; i < 100; i++) {
-//			for (int j = 0; j < 100; j++) {
-//				tmp[i][j]=map[i][j];
-//			}
-//		}
-//		return tmp;
-//		
-//	}
-//	
-//	
+	private static int[][] ArrayCopy(int[][] map) {
+		int[][] tmp = new int[100][100];
+		for (int i = 0; i < 100; i++) {
+			for (int j = 0; j < 100; j++) {
+				tmp[i][j]=map[i][j];
+			}
+		}
+		return tmp;
+		
+	}
+	
+	
 	private static int start(int i, int j,int dir) {
 		int x = i;
 		int y =j;
 		boolean isFlag=true; 
 		while(true) {
-//			showmap(copy);
-//			System.out.println("========================================================================================");
 			int nowi = x+dx[dir];
 			int nowj = y+dy[dir];
 			if(nowi<0 || nowi>=100 || nowj<0 || nowj>=100 || copy[nowi][nowj]==0 || copy[nowi][nowj]==3) {
@@ -98,8 +82,6 @@ public class SWEA_1210_Ladder1 {
 				dir=0;
 				continue;
 			}
-//			System.out.println(x+" "+y+" "+copy[x][y]);
-//			System.out.println(nowi+" "+nowj+" "+copy[nowi][nowj]);
 		}
 		if(isFlag) {
 			return j;
@@ -110,4 +92,18 @@ public class SWEA_1210_Ladder1 {
 		
 	}
 
+//	
+//	private static void showmap(int[][] tmp) {
+//		
+//		for (int i = 0; i < 100; i++) {
+//			for (int j = 0; j < 100; j++) {
+//				System.out.print(tmp[i][j]+" ");
+//			}
+//			System.out.println();
+//		}
+//		
+//		
+//	}
+//	
+//	
 }

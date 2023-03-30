@@ -44,13 +44,10 @@ public class BOJ_1244_스위치켜고끄기 {
 			
 		}
 		for (int i = 0; i < arr.length; i++) {
-			
-			if(i==arr.length-1) {
-				System.out.print(arr[i]);
+			if(i!=0 && i%20==0) {
+				System.out.println();
 			}
-			else {
-				System.out.print(arr[i]+" ");
-			}
+			System.out.print(arr[i]+" ");
 		}
 		
 		
