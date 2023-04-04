@@ -3,6 +3,8 @@ package X_Professor.day4;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.StringTokenizer;
 
 public class BOJ_17144_미세먼지안녕 {
@@ -13,6 +15,7 @@ public class BOJ_17144_미세먼지안녕 {
 	static int[][] saveMap;
 	static int[] dx= {0,1,0,-1};
 	static int[] dy= {1,0,-1,0};
+	static List<Point> arr;
 	public static void main(String[] args) throws IOException {
 		BufferedReader br =new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
@@ -22,11 +25,16 @@ public class BOJ_17144_미세먼지안녕 {
 		S=Integer.parseInt(st.nextToken());
 		
 		map=new int[N][M];
-		saveMap=new int[N][M];
+		saveMap=new  int[N][M];
+		arr=new LinkedList<>();
 		for (int i = 0; i < N; i++) {
 			st =new StringTokenizer(br.readLine());
 			for (int j = 0; j < M; j++) {
 				map[i][j]=Integer.parseInt(st.nextToken());
+				if(map[i][j]==-1) {
+					arr.add(new Point(i,j));
+				}
+					
 			}
 		}
 		
@@ -53,15 +61,23 @@ public class BOJ_17144_미세먼지안녕 {
 				
 			}
 		}
-//		for (int i = 0; i < N; i++) {
-//			for (int j = 0; j < M; j++) {
-//				map[i][j]+=saveMap[i][j];
-//			}
-//		}
-//		
-		print(map);
-		System.out.println("-----------------");
-		print(saveMap);
+		for (int i = 0; i < N; i++) {
+			for (int j = 0; j < M; j++) {
+				map[i][j]+=saveMap[i][j];
+			}
+		}
+		
+		for (int i = 0; i < N; i++) {
+			for (int j = 0; j < M; j++) {
+				if(map[i][j]==-1) {
+					for (int d = 0; d < 4; d++) {
+						int nexti = i+dx[d];
+						int nextj = j+dy[d];
+						
+					}
+				}
+			}
+		}
 		
 		
 		
@@ -74,5 +90,13 @@ public class BOJ_17144_미세먼지안녕 {
 			System.out.println();
 		}
 		
+	}
+	static class Point{
+		int x;
+		int y;
+		public Point(int x, int y) {
+			this.x = x;
+			this.y = y;
+		}
 	}
 }
