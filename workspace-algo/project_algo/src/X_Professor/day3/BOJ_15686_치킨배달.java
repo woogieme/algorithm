@@ -13,7 +13,9 @@ public class BOJ_15686_치킨배달 {
 	static int[][] map;
 	static boolean[] select;
 	static List<Point> arr;
+	static List<Point> brr;
 	static int ans;
+	static int tmp;
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br =new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
@@ -21,6 +23,7 @@ public class BOJ_15686_치킨배달 {
 		M = Integer.parseInt(st.nextToken());
 		map = new int[N][N];
 		arr = new ArrayList<>();
+		brr = new ArrayList<>();
 		ans = Integer.MAX_VALUE;
 		for (int i = 0; i < N; i++) {
 			st = new StringTokenizer(br.readLine());
@@ -28,6 +31,9 @@ public class BOJ_15686_치킨배달 {
 				map[i][j] = Integer.parseInt(st.nextToken());
 				if(map[i][j]==2) {
 					arr.add(new Point(i,j));
+				}
+				else if (map[i][j]==1){
+					brr.add(new Point(i,j));
 				}
 			}
 		}
@@ -37,13 +43,19 @@ public class BOJ_15686_치킨배달 {
 	}
 	private static void comb(int idx, int cnt) {
 		if(cnt==M) {
-			int value=0;
-			for (int i = 0; i < select.length; i++) {
-				if(select[i]) {
-					value += checkShort(i);
+			tmp=0;
+			for(Point br : brr) {
+				int value=Integer.MAX_VALUE;
+				for (int i = 0; i < arr.size(); i++) {
+					if(select[i]) {
+						int result = Math.abs(br.x-arr.get(i).x)+ 
+								Math.abs(br.y-arr.get(i).y);
+						value=Math.min(value, result);
+					}
 				}
+				tmp+=value;	
 			}
-			ans = Math.min(ans, value);
+			ans = Math.min(ans, tmp);
 			return;
 		}
 		if(idx==select.length) {
@@ -53,18 +65,6 @@ public class BOJ_15686_치킨배달 {
 		comb(idx+1,cnt+1);
 		select[idx]=false;
 		comb(idx+1,cnt);
-		
-	}
-	private static  int checkShort(int idx) {
-		int result=0;
-		for (int i = 0; i < N; i++) {
-			for (int j = 0; j < N; j++) {
-				if(map[i][j]==1) {
-					result =Math.abs((i-arr.get(idx).x))+Math.abs((j-arr.get(idx).y));
-				}
-			}
-		}
-		return result;
 		
 	}
 	static class Point{

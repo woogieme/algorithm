@@ -1,5 +1,20 @@
 package X_Professor.day3;
 
-public class BOJ_1697_숨바꼭질 {
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
+public class BOJ_1697_숨바꼭질 {
+	static int N;
+	static int M;
+	static int[] map;
+	public static void main(String[] args) throws IOException {
+		BufferedReader br =new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st =new StringTokenizer(br.readLine());
+		N = Integer.parseInt(st.nextToken());
+		M = Integer.parseInt(st.nextToken());
+		
+	}
+	
 }
