@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="model.BoardMapper">
+
+
+<insert id ="insert" parameterType="BoardDto">
+ INSERT INTO BOARD_TB(BWRITER, BTITLE, BCONTENT, BWRITE_DATE)
+ VALUES(#{bWriter}, #{bTitle}, #{bContent}, now())
+</insert>
+
+<select id="selectOne">
+SELECT BNO, BWRITER, BTITLE, BCONTENT, BWRITE_DATE
+FROM BOARD_TB
+WHERE BNO=#{bno}
+</select>
+
+<select id="selectAll">
+SELECT BNO, BWRITER, BTITLE, BCONTENT, BWRITE_DATE
+FROM BOARD_TB
+</select>
+
+</mapper>

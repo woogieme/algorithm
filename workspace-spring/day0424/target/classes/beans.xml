@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean id="ds" class="org.apache.commons.dbcp2.BasicDataSource">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/ssafy_yangyu?characterEncoding=UTF-8&amp;serverTimezone=UTC"></property>
+        <property name="username" value="ssafy"/>
+        <property name="password" value="ssafy"/>
+   </bean>
+   
+   <bean id ="fff" class="org.mybatis.spring.SqlSessionFactoryBean">
+   	<property name="dataSource" ref = "ddd"/>
+   	<property name="typeAliasesPackage" value="model"></property> <!--com.ssafy.simple-->
+   	<property name="mapperLocations" value="classpath:/**/mdoel/*.xml"/> <!--  *.xml <- sql 이런것  or *Mapper.xml-->
+   </bean>
+   
+   <bean id="ttt" class="org.mybatis.spring.SqlSessionTemplate">
+   	<constructor-arg ref="fff"/>
+   </bean>
+   
+   <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+   		<property name="basePackage" value="model"/>
+   </bean>
+</beans>

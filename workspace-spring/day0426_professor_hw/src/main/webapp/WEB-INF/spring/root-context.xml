@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+		
+	<!-- 어노테이션 스캔하는애들ㅇ ㅋㅋ-->
+	
+	<context:component-scan base-package="com.ssafy.board.model" />
+	
+	<!-- DAO 에서 커넥션을 관리를 하는 놈을 만들어야함-->
+	<bean id="start" class="org.apache.commons.dbcp2.BasicDataSource">
+		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+		<property name="url" value="jdbc:mysql://localhost:3306/ssafy_yangyu?characterEncoding=UTF-8&amp;serverTimezone=UTC"></property>
+		<property name="username" value="ssafy"/>
+		<property name="password" value="ssafy"/>
+	</bean>
+	
+	<!--DAO에서 커넥션 관리해주면 끝나냐? 그게 아니다 이말씀-->
+	<!-- 마이바티스 설정파일을 대체하는 객체 -->
+	<!-- 1. dataSource -->
+	<!-- 2. .xml 매퍼에서 쓰는 짧은 클래스명도 읽어야지?-->
+	<!-- 3. .xml 매퍼의 위치또한 알아야하지 않을까?-->
+	<!-- root-context는 보니까 web.xml이 불러놓고 또한 비웹에있는 xml을 읽으려고 하네? 라는 느낌아닐까?-->
+	<bean id="fff" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="start"/>
+		<property name="typeAliasesPackage" value="com.ssafy.board.model.dto"/>
+		<property name="mapperLocations" value="classpath:/**/dao/*.xml"></property>
+	</bean>
+	<!-- 마이바티스 설정이 끝났어? 이제 본격적으로 DB 작업해야지??? -->
+	<!-- mapper 인터페이스를 읽어와서 dao 객체로 만들어주는 프록시 관리자 그럼 얘네가 클래스로 대체하는거네 -->
+	
+	<bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+	<property name="basePackage" value="com.ssafy.simple.model.dao"/>
+	</bean>
+	 
+	
+</beans>
