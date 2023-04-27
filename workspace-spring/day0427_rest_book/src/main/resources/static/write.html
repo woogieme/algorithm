@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>여기는 도서 추가 화면</h1>
+	
+	제목 : <input type="text" id="title"><br>
+	저자 : <input type="text" id="writer"><br>
+	가격 : <input type="number" id="price"><br>
+	요약 : <input type="text" id="summary"><br>
+	<button id="btnSend">작성완료</button>
+	
+	
+	
+	
+	
+	<script type="text/javascript">
+	let root ="http://localhost:7777/bookcafe";
+	document.getElementById('btnSend').onclick=function(){
+		let params={
+				title: document.getElementById('title').value,
+				writer: document.getElementById('writer').value,
+				price: document.getElementById('price').value,
+				summary: document.getElementById('summary').value
+	
+		}
+		
+		
+		let fetchInfo ={
+				'method':'post'
+		}
+		// `/book?title=${params[title]}&writer=${params[writer]}& price=${params[price]}`
+		fetch(root+"/book?"+new URLSearchParams(params), fetchInfo)
+		.then(function(resp){return resp.text();})
+		.then(function(data){
+			if(data=='1'){
+				alert('글작성 완료, 목록으로 이동');
+				location.href=root+"/list.html";
+			}
+			else{
+				alert("글작성 실패, 다시 작성하세요");
+			}
+		})
+	}
+	</script>
+</body>
+</html>

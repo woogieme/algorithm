@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>여기는 도서 목록 페이지</h1>
+	
+	<table>
+		<thead>
+		<tr>
+		<th>번호. </th>
+		<th>제목. </th>
+		<th>가격. </th>
+		<th>저자. </th>
+		<th>요약. </th>
+		</tr>
+		</thead>
+		
+		<tbody id="dataBook">
+		
+		</tbody>
+	
+	</table>
+	<script type="text/javascript">
+		let root ="http://localhost:7777/bookcafe";
+		
+		let fetchInfo ={
+				'method':'get'
+		}
+		fetch(root+"/book",fetchInfo)
+		.then(function(resp){return resp.json();})
+		.then(function(data){
+			console.log(data);
+			let tbody='';
+			for(let i=0; i<data.length; i++){
+				tbody +=`<tr>
+				<td>${data[i].bno}</td>
+				<td>${data[i].title}</td>
+				<td>${data[i].price}</td>
+				<td>${data[i].writer}</td>
+				<td>${data[i].summary}</td>
+				</tr>`
+			}
+			document.getElementById('dataBook').innerHTML=tbody;
+		})
+	
+	
+	</script>
+</body>
+</html>

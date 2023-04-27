@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.book.model.dao.BookMapper">
+
+	<insert id="insert" parameterType="com.ssafy.book.model.dto.Book">
+		INSERT INTO BOOK_TB(TITLE, WRITER,PRICE,SUMMARY)
+		VALUES (#{title},  #{writer},#{price},#{summary})
+	
+	</insert>
+	
+	<select id="selectAll" resultType="com.ssafy.book.model.dto.Book">
+		SELECT BNO, TITLE,WRITER, PRICE, SUMMARY FROM BOOK_TB
+	</select>
+	
+	<select id="selectOne" resultType="com.ssafy.book.model.dto.Book">
+		SELECT BNO, TITLE,WRITER, PRICE ,SUMMARY FROM BOOK_TB WHERE BNO=#{bno}
+	</select>
+	
+	<delete id="delete">
+		DELETE FROM BOOK_TB WHERE BNO=#{bno}
+	</delete>
+
+
+
+</mapper>
