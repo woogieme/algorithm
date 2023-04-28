@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.test.model.dao.CommentMapper">
+
+	<select id="showComment" resultType="Comment">
+		SELECT cwriter, ccontent FROM COMMENT_TB WHERE BNO=#{BNO}; 
+	
+	</select>
+	
+	
+	<insert id="insert" parameterType="Comment">
+	INSERT INTO COMMENT_TB (BNO, CWRITER, CCONTENT) VALUES
+	(#{bno},#{cwriter},#{ccontent}) 
+	</insert>
+
+
+
+
+
+</mapper>
