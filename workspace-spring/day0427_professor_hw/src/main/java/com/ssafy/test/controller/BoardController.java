@@ -1,5 +1,9 @@
 package com.ssafy.test.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Random;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ssafy.test.model.dto.Board;
@@ -30,7 +35,6 @@ public class BoardController {
 	public ModelAndView list() {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("boardList", service.list());
-		
 		mv.setViewName("list");
 		
 		return mv;
@@ -48,16 +52,17 @@ public class BoardController {
 	}
 	
 	@PostMapping("write")
-	public String write(Board board, HttpSession session) {
+	public String write(Board board, HttpSession session,MultipartFile[] myfile) throws IllegalStateException, IOException {
 		Member loginInfo = (Member) session.getAttribute("loginInfo");
 		if( loginInfo ==null){
 			return "loginCheck";
 		}
 		else {
 			board.setBwriter(loginInfo.getUserId());
-			service.write(board);
+			service.write(board, myfile);
+			return "redirect:list";
 		}
-		return "redirect:list";
+		
 		
 		
 	}
@@ -79,7 +84,6 @@ public class BoardController {
 		comment.setCwriter(loginInfo.getUserId());
 		cService.insert(comment);
 		return "redirect:read?bno="+comment.getBno();
-		
 		
 	}
 }
