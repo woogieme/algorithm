@@ -1,5 +1,17 @@
 package com.trip.project.dto.like;
 
-public class LikeRepository {
+import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+@Mapper
+public interface LikeRepository {
+
+	int likeAdd(long userId, int contentId);
+
+	Integer isLikeCheck(@Param("userId")long userId, @Param("contentId")int contentId);
+
+	List<LikeListDto> showLikeList();
 
 }

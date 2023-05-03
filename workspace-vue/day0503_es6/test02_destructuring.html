@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //찢기전에 하나의 덩어리로 구성되어있음
+        let user = {
+            id:"ssafy",
+            name:"yangyu",
+            age:30,
+            phone:"010-9969-9776"
+        }
+        //만약 백엔드가 json 객체 데이터를 주면 이런식으로 뽑아 썼어야함.
+        function print(obj){
+            let id =obj.id,
+                name = data.name,
+                age =data.age
+
+        }
+        //destururcting 으로 받을때 쪼갯서 원하는것만 뽑아 받을 수 있음(fetch할때 편함)
+        function print2({id,name,age}){
+            console.log(id,name,age)
+        }
+        print2(user)
+
+        let{age,phone}=user;
+        //아래처럼 대입연산 왼쪼겡서 쪼개서 받을 수있음.
+        /////////////////////////////////////////////////////////
+        //어떤 라이브러리 함수를 실행하면 객체가 나온다고 가정해보자
+        function lib(){
+
+            return {title:'spring framework',author:'yangyu',price:30000};
+        }
+        //라이브러리 실행 결과 데이터에서 워하는 데이터 뽑아서 저장해놓고 쓰기(이름변경가능)
+        let {title:t,price:p}=lib();
+        console.log(t,p);
+        //Spread 펼친다 굳이따지자면 메소드를 호출하는 타이밍, 지금 여기에서 메소드를 받을때지만, 데이터를 주는 사이드로 생각함 ,오른쪽으로 생각해라.
+    </script>
+</body>
+</html>

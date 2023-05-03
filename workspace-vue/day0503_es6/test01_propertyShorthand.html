@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">;
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //q변수 여러개로 찢어져있는 데이터 하나의 객체에 몰아 넣을때 편해진 문법
+
+        let id="ssafy",
+        name="yangyu",
+        age=30;
+
+        //ES6 문법 이전에는 아래처럼 json 형식 항상 맞췄어야 됨.
+        // let obj = {
+        //     id:id,
+        //     name:name,
+        //     age:ag
+        // }
+        // 프로퍼티란 덩어리안에 객체나 변수가 여러개있는게 그거 하나하나가 프로퍼티임
+        //객체의 프로퍼티,프로퍼티가있다면 프로퍼티는 객체일수도 변수도있음
+        
+        let obj = {id,name,age};
+        function f1(){ //전역함수(사실은 window객체)
+
+        }
+        let obj2={
+            'userId':'yangyu',
+            f2:function(){
+                //이렇게 객체에 들어간 함수를 메소드라고 부름.
+            },
+            f3() {}
+        };
+        //es6을 배우는이우
+        //vue는 자바스크립트 라이브러리임 
+        //모듈은 직접만들어서 export시켜서 import로 쓸수있음
+        //그러나 뷰js라는 라이브러리를 사용하면서 배포된 라이브러리를 import할일이 많이있음
+        //그러는 과정에서 es6을 사용하면서 라이브러리를 갖고올일이 많이있을수있음
+        //vuejs는 기본적으로 js라서 js객체를 만들어서 사용하는일들이 많이있음
+        //그래서 그러다보면 '어 이거 왜되지?'라는 생각을 들수도있음, 원래는 우리가 고전적인 방법들을 많이 사용해서 [예를들어서 JSON] 그런느낌이들수있음
+        //
+
+        // Propery Shorthand란 무엇?
+        // ES6 에서 key와 value가 같을 경우 축약하여 같이 사용할수있게 만들어준 문법
+        // getName : getName
+        // getName
+
+        // 객체 내에서 좀 더 간결하게 메소드를 사용할수있음 
+        // getName: function () { } 
+        // getName() { }
+
+        //property short이랑 concise 합쳐지면 객체가 이렇게 생성된다
+        let ob3={
+            name,
+            age,
+            email,
+            info() {}
+        }
+
+        //destroy => parmater로 들어온것을 쪼개서 받겠다 [파괴하겠다는것임]
+        //변수 여러개로 만들어서 들어오자마자 쪼개겠다는 의미이다.
+
+        //spread => 오도도도 
+    </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const arr1= [10,20,30,40];
+        // const arr1copy =arr1; //이게 얕은 복사가 맞음!!
+        // arr1copy[0]=999;
+        // console.log(arr1); //원본 훼손됨, 얕은복사라
+        
+
+        //만약 깊은 복사를 하려면? 원래는 for문 돌려서하는게 맞음
+        // const  arr1copy=[];
+        // for(let i=0; i<arr1.length; i++){
+        //     arr1copy.push(arr1[i]);
+        // }
+        // arr1copy[0]=999;
+        // console.log(arr1);
+        // console.log(arr1copy);
+
+        //spread 나와서 깊은복사 편해짐
+        const arr1copy=[...arr1]; //대입연산 오른쪽에서 오도도다져서 펼친 다음에 왼쪽에 넣어주기
+        arr1copy[0]=999;
+        console.log(arr1);
+        //아무리 편하지만 spread해서 갖고왔지만 배열 안에있는 것이 하나하나가 객체라면
+        //Book b = new Book[100]; new한번했으니까 객체 1나 하지만 변수는 100개 즉 변수 100개를 가지고있는 객체 1
+        //즉 b[0] =new ~
+        // b[1] = new 로 해줘도됨
+
+
+        //배열객체, arr2라는 배열에서  하나하나에 객체 주소를 갖고있는것임 
+        //arr2copy = [...arr2] deepcopy를 하긴함 ,하지만 그 안에있는것은 객체 주소이기때문에 깊은 복사안에 참조하는느낌..?
+
+
+        
+        const arr2 =[
+            {name:'염동엽', status:"아픔"},
+            {name:'배수빈', status:"졸림"}
+
+        ]
+        const arr2copy = [...arr2]; //깊은 복사가 되는거긴함. 새로운 배열 생성해서 arr2[0], arr1[1] 하나하나 복사해줌
+                                    //다만 그 하나하나가 객체의 주소들인지라 객체가 공유되는 상황이 생겨버리긴함
+
+        //만약 진짜로 객체 자체를 염동엽 생성 배순빈 생성해서 완전 별개의 복사본을 만들고 싶으면?
+        const dee2copycopy =JSON.parse(JSON.stringify(arr2));
+        dee2copycopy[0].name="재욱";
+        console.log(arr2);
+        console.log(dee2copycopy);
+
+
+        /////////////////////////////////////////////////////////////////////
+        const arr3=[1,2];
+        const arr4=[4,5];
+        const merge3_4=[...arr3,10,20,...arr4]
+
+        const user ={name:'yangyu',age:30};
+        const info ={address:"daejeon",job:"teacher"};
+        const userinfo ={...user,...info}
+        ////////////////////////////////////////////////////////////
+        //응용버젼 : 대입연산자 왼쪽에서 펼치는 경우 
+        const arr5=[1,2,3,4,5]
+        const [a0,a1,...remain] =arr5;
+        console.log(a0,remain)
+
+
+        const person ={name:'양유',age:30,phone:'010-9969-9776'}
+        const {name:myName, ...ttt}=person;
+        </script>
+        console.log(myName,ttt);
+</body>
+</html>

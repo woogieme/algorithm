@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <table>
+            <tr>
+                <th>이미지</th>
+                <th>상품명</th>
+                <th>최저가</th>
+                <th>링크</th>
+                
+            </tr>
+            <tr v-for="item in items">
+                <td><img v-bind:src="item.image" width="150" height="150"></td>
+                <td v-html="item.title"></td>
+                <td>{{item.lprice}}</td>
+                <td><a v-bind:href="item.link">[바로가기]</td>
+            </tr>
+        </table>
+        
+        <input type="text" v-model="keyword"><button v-on:click="searchClick">눌러</button> 
+    </div>
+</body>
+<script>
+    new Vue({
+        el:'#app',
+        data(){
+            return{
+                items:[],
+                keyword:"너구리",
+            };
+        },
+        methods:{
+            searchClick(){
+                let link = "http://192.168.214.40:7777/bookcafe/naver/"+this.keyword
+                fetch(link).then(response=>response.json()).then(data=>{
+                    this.items = data.items
+                console.log('receive', this.items)
+            })
+            }
+        }
+    })
+</script>
+</html>

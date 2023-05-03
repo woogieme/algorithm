@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //html 문서는 기본적으로 window 객체에 포함된 상태임
+    console.log("outer this",this)
+
+    //이렇게 arrow가 아닌 일반 함수는 선언되는 위치에서 어느 객체에 포함된 상태인지 this임
+    //아래의 f1과 f2는 thsi라고 하면 window객체라고 생각함, 선언되는 위치가 this다
+    let f1 = function(){
+        console.log("f1 this",this);
+    }
+    function f2(){}
+    f1() // 호출되는 시점은 여기입니다. 호출하지 않으면 함수는 실행되지 않음.
+    ////////////////////////////////////////////////////////////////////
+    //내가 선언되는 위치가 어느 소속인걸로만 알면됨 그게 일반함수 this
+    let obj = {
+        name:"yangyu",
+        aa : function(){ // 일반 함수는 시점에 thsi가 결정됨, obj에 포함되어있음
+            console.log('aa this', this);
+        },
+        bb(){
+        console.log("bb call"),
+        obj.aa();
+        }
+    }
+    obj.aa();
+    obj.bb();
+
+    ///////////////////////////////////////////////////////
+    //arrow
+    //선언된 위치는 obj2이다, 하지만 arrow함수의 this는 선언된 위치가 아니라 함수호출시점이다.
+    //이것이 일반함수와 arrow함수의 차이
+    let obj2={
+        name:'강수민',
+        cc:()=>{
+            console.log("cc this",this);
+        },
+        dd:()=>{
+            //vue에서는 무조건 ㄱㄱ체를 하나 일단 만들고 그안에 프로퍼티 가지고 작업을 많이 함
+            //이 obj2처럼, 데이터도 저장하고 함수도 cc,dd처럼 만들어서 작업한다는 말
+            //console.log("cc this");
+            //obj2.cc(); //호출되는 위치를 보면 나는 dd내부임. dd의 this를 승계함.
+            //fetch(url.then(function(resp)return resp.json())) 여기서 this는 의리있게 obj2임.
+            //아래의then에 arrow함수는 콜백이라 window가 호출함. 즉 this가 obj2가 아님
+            fetch(url).then(resp=>resp.json()).then(data=>this.name=data) //함수호출이아니라 선언임 그럼 저건 
+        }
+    }
+    obj2.cc();
+    obj2.dd();//호출되는 위치를 보면 내가 소속된 부모는 window임 부모의 this 그대로 가져옴
+    </script>
+</body>
+</html>
