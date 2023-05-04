@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        
+        <button @click="inflation">물가상승</button>
+        <button v-on:click="down">물가하락</button>
+        <my-header v-on:mother="why"></my-header>
+        <my-content v-bind:용돈="money">
+
+        </my-content>
+        
+    </div>
+</body>
+<script type="module">
+    import MyHeader from "./components/MyHeader.js";
+    import MyContent from "./components/MyContent.js";
+    new Vue({
+        el:'#app',
+        components:{ MyHeader , MyContent },
+        data() {
+            return {
+                money:10000,
+            }
+        },
+        methods: {
+            //inflaction : function(){}
+            inflation(){
+                this.money+=10000;
+            },
+            down(){
+                this.money-=10000;
+            },
+            why(receive){
+                alert((parseInt(receive)+100)+'라니 미쳤구나 너는 네가 벌어 써라');
+            },
+        },
+    });
+</script>
+</html>

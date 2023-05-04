@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <comp-num v-bind:cup="bus"></comp-num>
+        <comp-btn v-bind:cup="bus"></comp-btn>
+    </div>
+</body>
+<script type="module">
+    import CompNum from "./CompNum.js";
+    import CompBtn from "./CompBtn.js";
+
+    const bus = new Vue();
+    new Vue({
+        el:"#app",
+        components:{CompBtn,CompNum},
+        data(){
+            return{
+                bus:bus
+            }
+        },
+        methods: {
+        },
+        //created() {
+            //this.$on('mother',this.why); 이렇게 케밥으로 만들필요없이 이렇게해도된다던데?
+        //},
+    })
+
+</script>
+</html>
