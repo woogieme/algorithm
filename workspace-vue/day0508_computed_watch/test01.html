@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+    <div id="app">
+<!-- v-model은 vue.js가 관리해주겠다는의미 -->
+        <input type="text" v-model="firstName">
+        <input type="text" v-model="lastName">
+        <!-- 나는 fullName이 필요하다 하지만 fullName이라는 변수가 따로필요할까? 두개를 합치면되지않을까? =>computed가 필요한 예시 -->
+        <h2>Full Name : {{fullName}} (함수호출하는 형태로 안씀. 걍 변수처럼 씀 )</h2>
+        <h2>Full Name(10글자): {{fullName | myFilter}}</h2>
+    </div>
+</body>
+<script>
+    new Vue({
+        el:"#app",
+        //template:``, //인스턴스가 아니라 컴포넌트 쪽에서 자기 담당 html
+        data() {
+            return {
+                firstName:"JaeWook",
+                lastName:"Jeong",
+                // fullName:"", 굳이 이렇게 변수를 또 만들어놓을 필요가 없음.
+            }
+        },
+        methods: {
+            
+        },
+        //때에따라 데이터를 가공할 상황이 생김
+        filters:{//필터는 일단 입력값이 무조건 있어야 함.
+            myFilter(inputData){
+                return inputData.toUpperCase().substring(0,10);
+            
+            },
+
+        },
+        created() { //created:function(){}, 기본적으로 json은 ~: ~, 
+            
+        },
+        watch:{ //data에 있는 변수를 지켜보고있음
+            lastName(){
+                console.log("호적 파였대요~~ 얼레리 꼴레리")
+            }, //있는것을 항상 지켜보는애
+            //watch는 명시되있는 변수를 지켜보고 변경이 일어났을때만 쳐다봄, update는 뭐 하나만바뀌면 실행됨
+        },
+        computed:{
+            fullName(){ // 여기서  기존 변수 두개로 계산해서 쓰면 됨,없는것을 만들어내는 느낌 즉, data에 없는 변수를 만들어 내는느낌
+                return this.firstName+this.lastName;
+            },
+        },
+        //props:[], //인스턴스가 컴포넌트쪽에 넣는애
+
+        //before creat, create
+        //before mount, mount 이런 instnace들은 자동으로 생성해줌
+        //watch는 능동적으로 쳐다보는것
+        //computed는 수동적으로 계산해주는것
+    });
+</script>
+</html>

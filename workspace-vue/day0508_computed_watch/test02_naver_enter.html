@@ -10,7 +10,8 @@
 
 <body>
     <div id="app">
-        <table>
+        <input type="text" v-model="keyword" v-on:keydown.enter="searchClick"><button v-on:click="searchClick">눌러</button> 
+        <table border="1px solid">
             <tr>
                 <th>이미지</th>
                 <th>상품명</th>
@@ -26,7 +27,7 @@
             </tr>
         </table>
         
-        <input type="text" v-model="keyword"><button v-on:click="searchClick">눌러</button> 
+        
     </div>
 </body>
 <script>
@@ -38,14 +39,18 @@
                 keyword:"너구리",
             };
         },
+        //create는 생성은 됐지만, 엘레먼트에 장착되기전,before mount도 마찬가지 
         methods:{
             searchClick(){
-                let link = "http://192.168.214.40:9999/bookcafe/naver/"+this.keyword
+                let link = "http://192.168.214.40:7777/bookcafe/naver/"+this.keyword
                 fetch(link).then(response=>response.json()).then(data=>{
                     this.items = data.items
                 console.log('receive', this.items)
             })
             }
+        },
+        watch:{ //키보드 이벤트
+            keyword(){this.searchClick()},
         }
     })
 </script>

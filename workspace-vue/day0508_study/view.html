@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        책번호<input type="text" v-model="isbn" disabled>
+        책이름<input type="text" v-model="title" disabled>
+        책저자<input type="text" v-model="author" disabled>
+        책가격<input type="text" v-model="price" disabled>
+        책내용<input type="text" v-model="content" disabled>
+        <button v-on:click="gomodify">수정하기</button>
+        <button v-on:click="godelete(isbn)">삭제하기</button>
+        <button v-on:click="golist">목록가기</button>
+    </div>
+</body>
+<script>
+    new Vue({
+        el:'#app',
+        data() {
+            return {
+                isbn:"",
+                title:"",
+                author:"",
+                price:"",
+                content:""
+            }
+        },
+        methods: {
+            gomodify(){
+                location.href="modify.html"
+            },
+            godelete(idx){
+                let data={
+                    method:"delete",
+                }
+                let link="http://192.168.214.40:9999/vuews/book/"+idx
+                fetch(link,data).then(response=>response.text()).then(data=>{
+                    alert(data);
+                    if(data=="success"){
+                        location.href="list.html"
+                        
+                    }
+                })
+                
+            },
+            golist(){
+                location.href="list.html"
+            }
+        },
+        mounted() {
+            let a =localStorage.getItem("operation");
+            let link="http://192.168.214.40:9999/vuews/book/"+a
+                fetch(link).then(response=>response.json()).then(data=>{
+                    this.isbn=data.isbn;
+                    this.title=data.title;
+                    this.author=data.author;
+                    this.price=data.price;
+                    this.content=data.content;
+                })
+        },
+    })
+</script>
+</html>
