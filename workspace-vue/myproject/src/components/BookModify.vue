@@ -18,10 +18,10 @@ export default {
     },
     data() {
         return {
-            title:"",
-            author:"",
-            price:0,
-            content:""
+            title:this.modifyItem.title,
+            author:this.modifyItem.author,
+            price:this.modifyItem.price,
+            content:this.modifyItem.price
         }
     },
     created() {},

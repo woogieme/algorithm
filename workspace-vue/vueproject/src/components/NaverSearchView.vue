@@ -31,6 +31,7 @@ export default {
   props: {
     //부모의 data중 momkeyword가 변경되면 받아오는 이쪽도 자동 반영
     naverKeyword: String,
+    
   },
   watch: {
     //지켜보다가 데이터 변경되면 백엔드한테 검색 결과 달라고

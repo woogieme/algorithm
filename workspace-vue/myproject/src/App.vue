@@ -2,7 +2,6 @@
   <div id="app">
     <book-header></book-header>
     <book-list v-on:mom="yes"></book-list>
-    <!-- <book-detail-list :></book-detail-list> -->
     <book-add></book-add>
     <book-one-view-vue v-bind:clicked-item="item"></book-one-view-vue>
   </div>
@@ -12,7 +11,6 @@
 import BookHeader from "./components/BookHeader.vue";
 import BookList from "./components/BookList.vue";
 import BookAdd from "./components/BookAdd.vue";
-// import BookDetailList from "./components/BookDetailList.vue";
 import BookOneViewVue from "./components/BookOneView.vue";
 
 export default {
@@ -21,7 +19,6 @@ export default {
     BookHeader,
     BookList,
     BookAdd,
-    // BookDetailList,
     BookOneViewVue
   },
   data() {
