@@ -108,7 +108,7 @@ public class SWEA_1767_프로세서연결하기 {
 				int nextj = now.y+dy[d];
 				if(nexti >=0 && nexti<M && nextj>=0 && nextj<M && !visited[nexti][nextj] && saveMap[nexti][nextj]==2) {
 					saveMap[nexti][nextj]=3;
-					visited[nexti][nextj]=true;
+					visited[nexti][nextj]=false;
 					queue.add(new Point(nexti,nextj));
 				}
 				
