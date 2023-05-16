@@ -32,7 +32,9 @@ public class SWEA_2117_홈방범서비스 {
 				BFS(i,j);
 			}
 		}
+		//BFS(3,3);
 		System.out.println(iTmp);
+		//print();
 		
 	}
 	private static void BFS(int x, int y) {
@@ -43,11 +45,13 @@ public class SWEA_2117_홈방범서비스 {
 		int count=1;
 		map[x][y]=1;
 		checked[x][y]=true;
-		int result=0;
+		
 		
 		while(!queue.isEmpty()) {
+			int result=0;
 			int size =queue.size();
-			if(count==N/2-1) {
+			System.out.println("size: "+size);
+			if(count==N/2) {
 				break;
 			}
 			for (int i = 0; i < size; i++) {
@@ -73,17 +77,24 @@ public class SWEA_2117_홈방범서비스 {
 					}
 				}
 			}
+			
 			tmp=count*count+((count-1)*(count-1));
-			if((tmp-value)>=0) {
+			//System.out.println("count: "+count);
+			//System.out.println("tmp: "+tmp);
+			//System.out.println("value: "+value);
+			if((value-tmp)>0) {
 				if(iTmp<result) {
 					iTmp=result;
 				}
 			}
 			
 		}
-		
-		
-		
+//		for (int i = 0; i < checked.length; i++) {
+//			for (int j = 0; j < checked.length; j++) {
+//				System.out.print(checked[i][j]+" ");
+//			}
+//			System.out.println();
+//		}
 	}
 	
 	private static void print() {
